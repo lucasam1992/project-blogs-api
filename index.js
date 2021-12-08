@@ -5,6 +5,7 @@ const loginController = require('./controllers/loginController');
 const categoryController = require('./controllers/categoryController');
 const blogPostController = require('./controllers/blogPostsController');
 const validateWebToken = require('./middlewares/validateToken');
+const authUserUpdate = require('./middlewares/authUserUpdate');
 
 const app = express();
 
@@ -19,7 +20,7 @@ app.post('/user', usersController.create);
 app.post('/login', loginController.logIn);
 app.post('/categories', validateWebToken, categoryController.createCategory);
 app.post('/post', validateWebToken, blogPostController.create);
-// app.put('/post/:id', validateWebToken, blogPostController.updateBlogPost);
+app.put('/post/:id', validateWebToken, authUserUpdate, blogPostController.updateBlogPost);
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 

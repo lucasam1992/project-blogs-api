@@ -54,25 +54,26 @@ const getBlogPostById = async (id) => {
     return existBlogPost;
 };
 
-/*
-const updateBlogPost = async (userId, title, content, categoryId) => {
-    const existFields = blogPostSchema.validatedEditFields(userId, title, content, categoryId);
+const updateBlogPost = async (id, title, content, categoryId) => {
+    const existFields = blogPostSchema.validatedEditFields(title, content, categoryId);
 
     if (existFields) return existFields;
 
-    const blogPost = await BlogPost.update(    
-        { title, content, categoryId },
+    await BlogPost.update(    
+          { title, content },
+          { where: { id } },
     );
 
-    console.log(blogPost);
+    const blogPostUpdated = await getBlogPostById(id);
+  
+    //  console.log(blogPostUpdated);
 
-    return blogPost;
+    return blogPostUpdated;
 };
-*/
 
 module.exports = {
     createBlogPost,
     getAllBlogPosts,
     getBlogPostById,
- //   updateBlogPost,
+    updateBlogPost,
 };
