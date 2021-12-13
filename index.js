@@ -21,6 +21,7 @@ app.post('/login', loginController.logIn);
 app.post('/categories', validateWebToken, categoryController.createCategory);
 app.post('/post', validateWebToken, blogPostController.create);
 app.put('/post/:id', validateWebToken, authUserUpdate, blogPostController.updateBlogPost);
+app.delete('/post/:id', validateWebToken, authUserUpdate, blogPostController.deletePost);
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 

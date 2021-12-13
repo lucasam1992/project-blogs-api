@@ -1,4 +1,4 @@
- const { Category } = require('../models');
+ const { Category, BlogPost } = require('../models');
  // const validateToken = require('../middlewares/validateToken');
 
 const TITLEFIELD = {
@@ -25,6 +25,19 @@ const CATEGORIESDOESNTCHANGED = {
     message: 'Categories cannot be edited',
     code: 400,
 };
+
+/*
+const POSTDOESNTEXIST = {
+    message: 'Post does not exist',
+    code: 404,
+};
+
+const validateIdPost = async (postId) => {
+    const existPostId = await BlogPost.findByPk(postId);
+
+    if (!existPostId) return POSTDOESNTEXIST;
+};
+*/
 
 const validateTitle = (title) => {
     if (!title) return TITLEFIELD;
@@ -55,4 +68,5 @@ module.exports = {
     validateContent,
     validateCategoryId,
     validatedEditFields,
+  //  validateIdPost,
 };

@@ -39,9 +39,20 @@ const updateBlogPost = rescue(async (req, res) => {
     return res.status(200).json(blogPost);
 });
 
+const deletePost = rescue(async (req, res) => {
+    const { id } = req.params;
+
+   await blogPostService.deletePost(id);
+
+   // if (blogPost.message) return res.status(blogPost.code).json({ message: blogPost.message });
+
+    return res.status(204).json();
+});
+
 module.exports = {
     create,
     getAllBlogPosts,
     getBlogPostById,
     updateBlogPost,
+    deletePost,
 };

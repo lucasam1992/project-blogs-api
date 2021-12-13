@@ -71,9 +71,20 @@ const updateBlogPost = async (id, title, content, categoryId) => {
     return blogPostUpdated;
 };
 
+const deletePost = async (id) => {
+ //  const existPostId = blogPostSchema.validateIdPost(id);
+
+ //  if (existPostId) return existPostId;
+
+  await BlogPost.destroy({
+      where: { id },
+    });
+};
+
 module.exports = {
     createBlogPost,
     getAllBlogPosts,
     getBlogPostById,
     updateBlogPost,
+    deletePost,
 };
