@@ -1,4 +1,4 @@
- const { Category, BlogPost } = require('../models');
+ const { Category } = require('../models');
  // const validateToken = require('../middlewares/validateToken');
 
 const TITLEFIELD = {
