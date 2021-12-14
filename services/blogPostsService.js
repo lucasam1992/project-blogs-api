@@ -1,5 +1,6 @@
-const blogPostSchema = require('../schemas/blogPostsSchema');
+const { Op } = require('sequelize');
 const { BlogPost, User, Category } = require('../models');
+const blogPostSchema = require('../schemas/blogPostsSchema');
 
 const createBlogPost = async (title, content, categoryIds, userId) => {
     const existTitle = blogPostSchema.validateTitle(title);
@@ -31,7 +32,7 @@ const getAllBlogPosts = async () => {
 
     });
 
-    console.log(blogPosts);
+  //  console.log(blogPosts);
     return blogPosts;
 };
 
@@ -81,10 +82,35 @@ const deletePost = async (id) => {
     });
 };
 
+// https://sequelize.org/v5/manual/querying.html
+
+const searchItem = async (words) => {
+  const allPosts = await BlogPost.findAll({
+      where: {
+        [Op.or]: [{ title: { [Op.like]: `%${words}%` } }, 
+                   { content: { [Op.like]: `%${words}%` } },
+      ] },
+      include: [
+        { model: User,
+          as: 'user', 
+          attributes: { exclude: ['password'] },
+        },
+        {
+          model: Category,
+          as: 'categories',
+          through: { attributes: [] },
+        },
+      ],
+  });
+  
+   return { allPosts };
+};
+
 module.exports = {
     createBlogPost,
     getAllBlogPosts,
     getBlogPostById,
     updateBlogPost,
     deletePost,
+    searchItem,
 };

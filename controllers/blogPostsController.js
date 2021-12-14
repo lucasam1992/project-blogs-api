@@ -49,10 +49,18 @@ const deletePost = rescue(async (req, res) => {
     return res.status(204).json();
 });
 
+const searchItem = rescue(async (req, res) => {
+    const { q } = req.query;
+
+        const { allPosts } = await blogPostService.searchItem(q);
+        return res.status(200).json(allPosts);
+});
+
 module.exports = {
     create,
     getAllBlogPosts,
     getBlogPostById,
     updateBlogPost,
     deletePost,
+    searchItem,
 };
