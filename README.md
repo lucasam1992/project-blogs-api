@@ -78,8 +78,9 @@
 ### Rodando o Projeto Localmente
 
 1° `git clone git@github.com:lucasam1992/project-blogs-api.git` - Clone o repositório para sua máquina<br />
-2° `npm install` - Instale as depedências<br />
-3° `npm start` - Execute o programa<br />
+2° `cd project-blogs-api` - Entre na pasta do repositório clonado<br />
+3° `npm install` - Instale as depedências<br />
+4° `npm start` - Execute o programa<br />
 **Sugestão: Baixe o programa Insomina para executar cada operação do CRUD: https://snapcraft.io/install/insomnia/ubuntu
 
 # Autor
