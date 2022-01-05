@@ -1,6 +1,6 @@
 # Boas vindas ao repositório do API de Blogs!
 
- O projeto consiste em uma API que realiza um CRUD (Create, Read, Update e Delete) de posts de blog. Para criação das tabelas do banco de dados, foi utilizado a técnica de Mapeamento Objeto-Relacional (`ORM`) através do pacote `sequelize` do Node.js.
+ O projeto consiste em uma API que realiza um CRUD (Create, Read, Update e Delete) de posts de blog. Para criação das tabelas do banco de dados, foi utilizado a técnica de Mapeamento Objeto-Relacional (`ORM`) através do pacote `sequelize` do Node.js. Foi feito autenticações de usuários através do pacote `jsonwebtoken`.
  
  ## Banco de Dados do Projeto
  ![Banco Blogs-API](./public/desenhoBD.png)
