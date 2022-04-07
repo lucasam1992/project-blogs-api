@@ -14,6 +14,7 @@
  - Express
  - JavaScript
  - MySQL
+ - JsonWebToken
 
 
 ## O que foi desenvolvido
