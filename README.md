@@ -87,5 +87,13 @@
 4° `npm start` - Execute o programa<br />
 **Sugestão: Baixe o programa Insomina para executar cada operação do CRUD: https://snapcraft.io/install/insomnia/ubuntu
 
+#### Conexão com o Banco 
+
+Para que o projeto rode em sua máquina, você deve criar as seguintes variáveis de ambiente:
+
+`host: process.env.HOSTNAME`
+`user: process.env.MYSQL_USER`
+`password: process.env.MYSQL_PASSWORD`
+
 # Autor
    - Lucas Machado
