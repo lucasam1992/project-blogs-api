@@ -91,9 +91,9 @@
 
 Para que o projeto rode em sua máquina, você deve criar as seguintes variáveis de ambiente:
 
-`host: process.env.HOSTNAME`
-`user: process.env.MYSQL_USER`
-`password: process.env.MYSQL_PASSWORD`
+`host: process.env.HOSTNAME` <br />
+`user: process.env.MYSQL_USER`<br />
+`password: process.env.MYSQL_PASSWORD` <br />
 
 # Autor
    - Lucas Machado
